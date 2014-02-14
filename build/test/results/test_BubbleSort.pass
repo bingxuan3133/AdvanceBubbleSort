@@ -2,12 +2,24 @@
 :source:
   :path: test
   :file: test_BubbleSort.c
-:successes: []
+:successes:
+- :test: test_compareAndSwap_should_not_swap_if_in_order
+  :line: 7
+  :message: ''
+- :test: test_compareAndSwap_should_swap_if_not_in_order
+  :line: 14
+  :message: ''
+- :test: test_compareAndSwap_should_not_swap_if_in_order_for_negative_numbers
+  :line: 21
+  :message: ''
+- :test: test_compareAndSwap_should_swap_if_not_in_order_for_negative_numbers
+  :line: 28
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 0
-  :passed: 0
+  :total: 4
+  :passed: 4
   :failed: 0
   :ignored: 0
 :stdout: []

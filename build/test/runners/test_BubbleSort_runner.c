@@ -30,6 +30,10 @@ char* GlobalOrderError;
 //=======External Functions This Runner Calls=====
 extern void setUp(void);
 extern void tearDown(void);
+extern void test_compareAndSwap_should_not_swap_if_in_order(void);
+extern void test_compareAndSwap_should_swap_if_not_in_order(void);
+extern void test_compareAndSwap_should_not_swap_if_in_order_for_negative_numbers(void);
+extern void test_compareAndSwap_should_swap_if_not_in_order_for_negative_numbers(void);
 
 
 //=======Test Reset Option=====
@@ -45,6 +49,10 @@ int main(void)
 {
   Unity.TestFile = "test_BubbleSort.c";
   UnityBegin();
+  RUN_TEST(test_compareAndSwap_should_not_swap_if_in_order, 7);
+  RUN_TEST(test_compareAndSwap_should_swap_if_not_in_order, 14);
+  RUN_TEST(test_compareAndSwap_should_not_swap_if_in_order_for_negative_numbers, 21);
+  RUN_TEST(test_compareAndSwap_should_swap_if_not_in_order_for_negative_numbers, 28);
 
   return (UnityEnd());
 }
