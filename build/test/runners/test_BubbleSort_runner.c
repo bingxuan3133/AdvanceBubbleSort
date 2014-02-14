@@ -37,6 +37,9 @@ extern void test_compareAndSwap_should_swap_if_not_in_order_for_negative_numbers
 extern void test_sortLargestToRightMost_should_move_largest_to_the_end_for_2_elements(void);
 extern void test_sortLargestToRightMost_should_move_largest_to_the_end_for_3_elements(void);
 extern void test_sortLargestToRightMost_should_move_largest_to_the_end_for_4_elements(void);
+extern void test_bubbleSort_should_sort_2_elements_correctly(void);
+extern void test_bubbleSort_should_sort_3_elements_correctly(void);
+extern void test_bubbleSort_should_sort_5_elements_correctly(void);
 
 
 //=======Test Reset Option=====
@@ -59,6 +62,9 @@ int main(void)
   RUN_TEST(test_sortLargestToRightMost_should_move_largest_to_the_end_for_2_elements, 35);
   RUN_TEST(test_sortLargestToRightMost_should_move_largest_to_the_end_for_3_elements, 42);
   RUN_TEST(test_sortLargestToRightMost_should_move_largest_to_the_end_for_4_elements, 50);
+  RUN_TEST(test_bubbleSort_should_sort_2_elements_correctly, 59);
+  RUN_TEST(test_bubbleSort_should_sort_3_elements_correctly, 66);
+  RUN_TEST(test_bubbleSort_should_sort_5_elements_correctly, 74);
 
   return (UnityEnd());
 }
