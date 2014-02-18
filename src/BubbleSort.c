@@ -40,3 +40,13 @@ void compareAndSwapIfSmaller(int *first, int *second) {
 		*first = temp;
 	}	
 }
+
+void sortSmallestToRightMost(int *array, int size) {
+	// compareAndSwap(&array[0], &array[1]);
+	// compareAndSwap(&array[1], &array[2]);
+	int i;
+	
+	for(i = 0; i < size - 1; i++) {
+		compareAndSwapIfSmaller(&array[i], &array[i+1]);
+	}
+}

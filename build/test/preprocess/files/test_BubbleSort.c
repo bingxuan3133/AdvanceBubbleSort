@@ -217,3 +217,51 @@ void test_compareAndSwapIfSmaller_should_swap_if_not_in_descending_order_for_neg
  UnityAssertEqualNumber((_U_SINT)((-6)), (_U_SINT)((array[1])), (((void *)0)), (_U_UINT)110, UNITY_DISPLAY_STYLE_INT);
 
 }
+
+
+
+void test_sortSmallestToRightMost_should_move_smallest_to_the_end_for_2_elements() {
+
+ int array[] = {13, 9};
+
+ sortSmallestToRightMost(array, sizeof(array)/sizeof(int));
+
+ UnityAssertEqualNumber((_U_SINT)((13)), (_U_SINT)((array[0])), (((void *)0)), (_U_UINT)116, UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((_U_SINT)((9)), (_U_SINT)((array[1])), (((void *)0)), (_U_UINT)117, UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_sortSmallestToRightMost_should_move_smallest_to_the_end_for_3_elements() {
+
+ int array[] = {6, 3, -5};
+
+ sortSmallestToRightMost(array, sizeof(array)/sizeof(int));
+
+ UnityAssertEqualNumber((_U_SINT)((6)), (_U_SINT)((array[0])), (((void *)0)), (_U_UINT)123, UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((_U_SINT)((3)), (_U_SINT)((array[1])), (((void *)0)), (_U_UINT)124, UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((_U_SINT)((-5)), (_U_SINT)((array[2])), (((void *)0)), (_U_UINT)125, UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_sortSmallestToRightMost_should_move_smallest_to_the_end_for_4_elements() {
+
+ int array[] = {-10, 5, 2, 1};
+
+ sortSmallestToRightMost(array, sizeof(array)/sizeof(int));
+
+ UnityAssertEqualNumber((_U_SINT)((5)), (_U_SINT)((array[0])), (((void *)0)), (_U_UINT)131, UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((_U_SINT)((2)), (_U_SINT)((array[1])), (((void *)0)), (_U_UINT)132, UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((array[2])), (((void *)0)), (_U_UINT)133, UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((_U_SINT)((-10)), (_U_SINT)((array[3])), (((void *)0)), (_U_UINT)134, UNITY_DISPLAY_STYLE_INT);
+
+}

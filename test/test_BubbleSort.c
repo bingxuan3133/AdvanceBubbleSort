@@ -109,3 +109,30 @@ void test_compareAndSwapIfSmaller_should_swap_if_not_in_descending_order_for_neg
 	TEST_ASSERT_EQUAL(-3, array[0]);
 	TEST_ASSERT_EQUAL(-6, array[1]);
 }
+
+void test_sortSmallestToRightMost_should_move_smallest_to_the_end_for_2_elements() {
+	int array[] = {13, 9};
+	sortSmallestToRightMost(array, sizeof(array)/sizeof(int));
+	TEST_ASSERT_EQUAL(13, array[0]);
+	TEST_ASSERT_EQUAL(9, array[1]);
+}
+
+void test_sortSmallestToRightMost_should_move_smallest_to_the_end_for_3_elements() {
+	int array[] = {6, 3, -5};
+	sortSmallestToRightMost(array, sizeof(array)/sizeof(int));
+	TEST_ASSERT_EQUAL(6, array[0]);
+	TEST_ASSERT_EQUAL(3, array[1]);
+	TEST_ASSERT_EQUAL(-5, array[2]);
+}
+
+void test_sortSmallestToRightMost_should_move_smallest_to_the_end_for_4_elements() {
+	int array[] = {-10, 5, 2, 1};
+	sortSmallestToRightMost(array, sizeof(array)/sizeof(int));
+	TEST_ASSERT_EQUAL(5, array[0]);
+	TEST_ASSERT_EQUAL(2, array[1]);
+	TEST_ASSERT_EQUAL(1, array[2]);
+	TEST_ASSERT_EQUAL(-10, array[3]);
+}
+
+
+
