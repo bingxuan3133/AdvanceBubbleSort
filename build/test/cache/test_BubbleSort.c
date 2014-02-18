@@ -12,7 +12,7 @@ void test_compareAndSwap_should_not_swap_if_in_order() {
 
  int array[] = {1, 2};
 
- compareAndSwap(&array[0], &array[1]);
+ compareAndSwapIfLarger(&array[0], &array[1]);
 
  UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((array[0])), (((void *)0)), (_U_UINT)10, UNITY_DISPLAY_STYLE_INT);
 
@@ -26,7 +26,7 @@ void test_compareAndSwap_should_swap_if_not_in_order() {
 
  int array[] = {8, 4};
 
- compareAndSwap(&array[0], &array[1]);
+ compareAndSwapIfLarger(&array[0], &array[1]);
 
  UnityAssertEqualNumber((_U_SINT)((4)), (_U_SINT)((array[0])), (((void *)0)), (_U_UINT)17, UNITY_DISPLAY_STYLE_INT);
 
@@ -40,7 +40,7 @@ void test_compareAndSwap_should_not_swap_if_in_order_for_negative_numbers() {
 
  int array[] = {-10, -5};
 
- compareAndSwap(&array[0], &array[1]);
+ compareAndSwapIfLarger(&array[0], &array[1]);
 
  UnityAssertEqualNumber((_U_SINT)((-10)), (_U_SINT)((array[0])), (((void *)0)), (_U_UINT)24, UNITY_DISPLAY_STYLE_INT);
 
@@ -54,7 +54,7 @@ void test_compareAndSwap_should_swap_if_not_in_order_for_negative_numbers() {
 
  int array[] = {-11, -22};
 
- compareAndSwap(&array[0], &array[1]);
+ compareAndSwapIfLarger(&array[0], &array[1]);
 
  UnityAssertEqualNumber((_U_SINT)((-22)), (_U_SINT)((array[0])), (((void *)0)), (_U_UINT)31, UNITY_DISPLAY_STYLE_INT);
 
@@ -157,5 +157,63 @@ void test_bubbleSort_should_sort_5_elements_correctly() {
  UnityAssertEqualNumber((_U_SINT)((22)), (_U_SINT)((array[3])), (((void *)0)), (_U_UINT)80, UNITY_DISPLAY_STYLE_INT);
 
  UnityAssertEqualNumber((_U_SINT)((33)), (_U_SINT)((array[4])), (((void *)0)), (_U_UINT)81, UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+
+
+void test_compareAndIfSmaller_should_not_swap_if_in_descending_order() {
+
+ int array[] = {9,8};
+
+ compareAndSwapIfSmaller(&array[0], &array[1]);
+
+ UnityAssertEqualNumber((_U_SINT)((9)), (_U_SINT)((array[0])), (((void *)0)), (_U_UINT)88, UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((_U_SINT)((8)), (_U_SINT)((array[1])), (((void *)0)), (_U_UINT)89, UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_compareAndSwapIfSmaller_should_swap_if_not_in_descending_order() {
+
+ int array[] = {2,8};
+
+ compareAndSwapIfSmaller(&array[0], &array[1]);
+
+ UnityAssertEqualNumber((_U_SINT)((8)), (_U_SINT)((array[0])), (((void *)0)), (_U_UINT)95, UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((_U_SINT)((2)), (_U_SINT)((array[1])), (((void *)0)), (_U_UINT)96, UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_compareAndSwapIfSmaller_should_not_swap_if_in_descending_order_for_negative_numbers() {
+
+ int array[] = {-1,-8};
+
+ compareAndSwapIfSmaller(&array[0], &array[1]);
+
+ UnityAssertEqualNumber((_U_SINT)((-1)), (_U_SINT)((array[0])), (((void *)0)), (_U_UINT)102, UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((_U_SINT)((-8)), (_U_SINT)((array[1])), (((void *)0)), (_U_UINT)103, UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_compareAndSwapIfSmaller_should_swap_if_not_in_descending_order_for_negative_numbers() {
+
+ int array[] = {-6,-3};
+
+ compareAndSwapIfSmaller(&array[0], &array[1]);
+
+ UnityAssertEqualNumber((_U_SINT)((-3)), (_U_SINT)((array[0])), (((void *)0)), (_U_UINT)109, UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((_U_SINT)((-6)), (_U_SINT)((array[1])), (((void *)0)), (_U_UINT)110, UNITY_DISPLAY_STYLE_INT);
 
 }

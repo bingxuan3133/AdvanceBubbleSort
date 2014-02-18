@@ -33,11 +33,23 @@
 - :test: test_bubbleSort_should_sort_5_elements_correctly
   :line: 74
   :message: ''
+- :test: test_compareAndIfSmaller_should_not_swap_if_in_descending_order
+  :line: 85
+  :message: ''
+- :test: test_compareAndSwapIfSmaller_should_swap_if_not_in_descending_order
+  :line: 92
+  :message: ''
+- :test: test_compareAndSwapIfSmaller_should_not_swap_if_in_descending_order_for_negative_numbers
+  :line: 99
+  :message: ''
+- :test: test_compareAndSwapIfSmaller_should_swap_if_not_in_descending_order_for_negative_numbers
+  :line: 106
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 10
-  :passed: 10
+  :total: 14
+  :passed: 14
   :failed: 0
   :ignored: 0
 :stdout: []

@@ -1,6 +1,7 @@
 #include "BubbleSort.h"
 
-void compareAndSwap(int *first, int *second) {
+// Ascending order bubble sort
+void compareAndSwapIfLarger(int *first, int *second) {
 	int temp;
 	
 	if(*first > *second) {
@@ -16,7 +17,7 @@ void sortLargestToRightMost(int *array, int size) {
 	int i;
 	
 	for(i = 0; i < size - 1; i++) {
-		compareAndSwap(&array[i], &array[i+1]);
+		compareAndSwapIfLarger(&array[i], &array[i+1]);
 	}
 }
 
@@ -29,6 +30,13 @@ void bubbleSort(int *array, int size) {
 	}
 }
 
-
-
-
+// Descending order bubble sort
+void compareAndSwapIfSmaller(int *first, int *second) {
+	int temp;
+	
+	if(*first < *second) {
+		temp = *second;
+		*second = *first;
+		*first = temp;
+	}	
+}

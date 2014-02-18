@@ -40,6 +40,10 @@ extern void test_sortLargestToRightMost_should_move_largest_to_the_end_for_4_ele
 extern void test_bubbleSort_should_sort_2_elements_correctly(void);
 extern void test_bubbleSort_should_sort_3_elements_correctly(void);
 extern void test_bubbleSort_should_sort_5_elements_correctly(void);
+extern void test_compareAndIfSmaller_should_not_swap_if_in_descending_order(void);
+extern void test_compareAndSwapIfSmaller_should_swap_if_not_in_descending_order(void);
+extern void test_compareAndSwapIfSmaller_should_not_swap_if_in_descending_order_for_negative_numbers(void);
+extern void test_compareAndSwapIfSmaller_should_swap_if_not_in_descending_order_for_negative_numbers(void);
 
 
 //=======Test Reset Option=====
@@ -65,6 +69,10 @@ int main(void)
   RUN_TEST(test_bubbleSort_should_sort_2_elements_correctly, 59);
   RUN_TEST(test_bubbleSort_should_sort_3_elements_correctly, 66);
   RUN_TEST(test_bubbleSort_should_sort_5_elements_correctly, 74);
+  RUN_TEST(test_compareAndIfSmaller_should_not_swap_if_in_descending_order, 85);
+  RUN_TEST(test_compareAndSwapIfSmaller_should_swap_if_not_in_descending_order, 92);
+  RUN_TEST(test_compareAndSwapIfSmaller_should_not_swap_if_in_descending_order_for_negative_numbers, 99);
+  RUN_TEST(test_compareAndSwapIfSmaller_should_swap_if_not_in_descending_order_for_negative_numbers, 106);
 
   return (UnityEnd());
 }
