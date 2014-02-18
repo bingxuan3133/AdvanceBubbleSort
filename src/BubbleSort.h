@@ -3,8 +3,10 @@
 
 void compareAndSwapIfLarger(int *first, int *second);
 void sortLargestToRightMost(int *array, int size);
-void bubbleSort(int *array, int size);
+void bubbleSortAscendingly(int *array, int size);
 
 void compareAndSwapIfSmaller(int *first, int *second);
+void sortSmallestToRightMost(int *array, int size);
+void bubbleSortDescendingly(int *array, int size);
 
 #endif	//	__BUBBLE_SORT_H__

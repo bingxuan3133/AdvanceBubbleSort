@@ -21,7 +21,7 @@ void sortLargestToRightMost(int *array, int size) {
 	}
 }
 
-void bubbleSort(int *array, int size) {
+void bubbleSortAscendingly(int *array, int size) {
 	// sortLargestToRightMost(array, size);
 	// sortLargestToRightMost(array, size-1);
 	
@@ -48,5 +48,14 @@ void sortSmallestToRightMost(int *array, int size) {
 	
 	for(i = 0; i < size - 1; i++) {
 		compareAndSwapIfSmaller(&array[i], &array[i+1]);
+	}
+}
+
+void bubbleSortDescendingly(int *array, int size) {
+	// sortLargestToRightMost(array, size);
+	// sortLargestToRightMost(array, size-1);
+	
+	for(size; size >= 2; size--) {
+		sortSmallestToRightMost(array, size);
 	}
 }

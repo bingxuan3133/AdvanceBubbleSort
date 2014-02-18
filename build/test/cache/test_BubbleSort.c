@@ -8,7 +8,7 @@ void tearDown() {}
 
 
 
-void test_compareAndSwap_should_not_swap_if_in_order() {
+void test_compareAndSwapIfLarger_should_not_swap_if_in_ascending_order() {
 
  int array[] = {1, 2};
 
@@ -22,7 +22,7 @@ void test_compareAndSwap_should_not_swap_if_in_order() {
 
 
 
-void test_compareAndSwap_should_swap_if_not_in_order() {
+void test_compareAndSwapIfLarger_should_swap_if_not_in_ascending_order() {
 
  int array[] = {8, 4};
 
@@ -36,7 +36,7 @@ void test_compareAndSwap_should_swap_if_not_in_order() {
 
 
 
-void test_compareAndSwap_should_not_swap_if_in_order_for_negative_numbers() {
+void test_compareAndSwapIfLarger_should_not_swap_if_in_ascending_order_for_negative_numbers() {
 
  int array[] = {-10, -5};
 
@@ -50,7 +50,7 @@ void test_compareAndSwap_should_not_swap_if_in_order_for_negative_numbers() {
 
 
 
-void test_compareAndSwap_should_swap_if_not_in_order_for_negative_numbers() {
+void test_compareAndSwapIfLarger_should_swap_if_not_in_ascending_order_for_negative_numbers() {
 
  int array[] = {-11, -22};
 
@@ -116,7 +116,7 @@ void test_bubbleSort_should_sort_2_elements_correctly() {
 
  int array[] = {34, 23};
 
- bubbleSort(array, sizeof(array)/sizeof(int));
+ bubbleSortAscendingly(array, sizeof(array)/sizeof(int));
 
  UnityAssertEqualNumber((_U_SINT)((23)), (_U_SINT)((array[0])), (((void *)0)), (_U_UINT)62, UNITY_DISPLAY_STYLE_INT);
 
@@ -130,7 +130,7 @@ void test_bubbleSort_should_sort_3_elements_correctly() {
 
  int array[] = {33, 22, 11};
 
- bubbleSort(array, sizeof(array)/sizeof(int));
+ bubbleSortAscendingly(array, sizeof(array)/sizeof(int));
 
  UnityAssertEqualNumber((_U_SINT)((11)), (_U_SINT)((array[0])), (((void *)0)), (_U_UINT)69, UNITY_DISPLAY_STYLE_INT);
 
@@ -142,11 +142,11 @@ void test_bubbleSort_should_sort_3_elements_correctly() {
 
 
 
-void test_bubbleSort_should_sort_5_elements_correctly() {
+void test_bubbleSort_should_sort_5_elements_ascendingly() {
 
  int array[] = {33, 22, 11, 8, 3};
 
- bubbleSort(array, sizeof(array)/sizeof(int));
+ bubbleSortAscendingly(array, sizeof(array)/sizeof(int));
 
  UnityAssertEqualNumber((_U_SINT)((3)), (_U_SINT)((array[0])), (((void *)0)), (_U_UINT)77, UNITY_DISPLAY_STYLE_INT);
 
@@ -263,5 +263,25 @@ void test_sortSmallestToRightMost_should_move_smallest_to_the_end_for_4_elements
  UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((array[2])), (((void *)0)), (_U_UINT)133, UNITY_DISPLAY_STYLE_INT);
 
  UnityAssertEqualNumber((_U_SINT)((-10)), (_U_SINT)((array[3])), (((void *)0)), (_U_UINT)134, UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_bubbleSortDescendingly_should_sort_5_elements_descendingly() {
+
+ int array[] = {33, 22, 11, 8, 3};
+
+ bubbleSortDescendingly(array, sizeof(array)/sizeof(int));
+
+ UnityAssertEqualNumber((_U_SINT)((33)), (_U_SINT)((array[0])), (((void *)0)), (_U_UINT)140, UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((_U_SINT)((22)), (_U_SINT)((array[1])), (((void *)0)), (_U_UINT)141, UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((_U_SINT)((11)), (_U_SINT)((array[2])), (((void *)0)), (_U_UINT)142, UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((_U_SINT)((8)), (_U_SINT)((array[3])), (((void *)0)), (_U_UINT)143, UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((_U_SINT)((3)), (_U_SINT)((array[4])), (((void *)0)), (_U_UINT)144, UNITY_DISPLAY_STYLE_INT);
 
 }
