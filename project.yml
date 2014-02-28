@@ -42,7 +42,9 @@
   :test_preprocess:
     - *common_defines
     - TEST=
-
+:unity:
+  :define:
+    - UNITY_FLOAT_TYPE=\"double\"
 :cmock:
   :mock_prefix: mock_
   :when_no_prototypes: :warn

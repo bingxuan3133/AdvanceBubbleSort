@@ -1,61 +1,53 @@
 #include "BubbleSort.h"
+#include "CSInt.h"
+#include "CSDouble.h"
 
-// Ascending order bubble sort
-void compareAndSwapIfLarger(int *first, int *second) {
-	int temp;
+void compareAndSwap(void *first, 
+							void *second, 
+							int (*isGreater)(void*, void*), 
+							void (*swap)(void*, void*)) {
+	void *temp;
 	
-	if(*first > *second) {
-		temp = *second;
-		*second = *first;
-		*first = temp;
+	if(isGreater(first, second)) {
+		swap(first, second);
 	}
+
 }
 
-void sortLargestToRightMost(int *array, int size) {
-	// compareAndSwap(&array[0], &array[1]);
-	// compareAndSwap(&array[1], &array[2]);
+/**
+ *	Do single iteration of bubble sorting.
+ *
+ *	Input:
+ *		array	contains array of elements to sort
+ *		length	is the length of array
+ *		size	is the size of each element in the array
+ *		isGreater	is a function that compares if the first 
+ *					is greater than the second
+ *		swap	is a function that swaps elements
+ */
+void sortLargestToRightMost(void *array, 
+							int length, 
+							int size,
+							int (*isGreater)(void*, void*), 
+							void (*swap)(void*, void*)) {
 	int i;
 	
-	for(i = 0; i < size - 1; i++) {
-		compareAndSwapIfLarger(&array[i], &array[i+1]);
+	char *arrayOfChar = (char *)array;
+	
+	for(i = 0; i < length - 1; i ++) {
+		compareAndSwap(&arrayOfChar[i * size],
+						&arrayOfChar[(i+1) * size],
+						isGreater,
+						swap);
 	}
 }
 
-void bubbleSortAscendingly(int *array, int size) {
-	// sortLargestToRightMost(array, size);
-	// sortLargestToRightMost(array, size-1);
-	
-	for(size; size >= 2; size--) {
-		sortLargestToRightMost(array, size);
-	}
-}
-
-// Descending order bubble sort
-void compareAndSwapIfSmaller(int *first, int *second) {
-	int temp;
-	
-	if(*first < *second) {
-		temp = *second;
-		*second = *first;
-		*first = temp;
-	}	
-}
-
-void sortSmallestToRightMost(int *array, int size) {
-	// compareAndSwap(&array[0], &array[1]);
-	// compareAndSwap(&array[1], &array[2]);
-	int i;
-	
-	for(i = 0; i < size - 1; i++) {
-		compareAndSwapIfSmaller(&array[i], &array[i+1]);
-	}
-}
-
-void bubbleSortDescendingly(int *array, int size) {
-	// sortLargestToRightMost(array, size);
-	// sortLargestToRightMost(array, size-1);
-	
-	for(size; size >= 2; size--) {
-		sortSmallestToRightMost(array, size);
+void bubbleSort(void *array, 
+				int length, 
+				int size,
+				int (*isGreater)(void*, void*), 
+				void (*swap)(void*, void*)) {
+	for(; length >= 2; length--) {
+		sortLargestToRightMost(array, length, size, isGreater, swap);
 	}
 }
